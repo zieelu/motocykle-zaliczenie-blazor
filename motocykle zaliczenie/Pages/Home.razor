@@ -1,0 +1,71 @@
+﻿@page "/"
+
+<header>Moje ulubione motocykle</header>
+
+<div class="container">
+    <div class="column-left">
+        <p>Moje hobby od dzieciństwa to motocykle.</p>
+        <p>Pasja ta zaczęła się, gdy miałem zaledwie dziewięć lat – to wtedy mój tata po raz pierwszy nauczył mnie jeździć.</p>
+        <p>Pamiętam ten moment doskonale: emocje, dreszczyk adrenaliny i uczucie wolności, które poczułem, gdy po raz pierwszy chwyciłem za kierownicę i poczułem wiatr na twarzy.</p>
+        <p>Od tamtej chwili motocykle stały się nieodłącznym elementem mojego życia.</p>
+        <p>Z biegiem lat zdobywałem coraz więcej doświadczenia, poznawałem różne modele motocykli i uczyłem się ich mechaniki.</p>
+        <p>Uwielbiam zarówno klasyczne jednoślady, jak i nowoczesne maszyny pełne zaawansowanej technologii.</p>
+        <p>Jazda motocyklem daje mi niesamowite poczucie swobody – to chwila, w której liczy się tylko droga, maszyna i ja.</p>
+        <p>Do dziś motocykle pozostają moją pasją. Każda trasa to nowe wyzwanie, nowe emocje i niepowtarzalne przeżycia.</p>
+        <p>Uwielbiam podróżować, odkrywać nowe miejsca i cieszyć się każdą chwilą spędzoną na dwóch kółkach.</p>
+        <p>Dla mnie to nie tylko hobby, ale styl życia, który pozwala mi oderwać się od codzienności i poczuć prawdziwą wolność.</p>
+    </div>
+
+    <div class="column-right">
+        <img src="images/motocykl01.jpg" alt="Zdjęcie motocykla" />
+        <p></p>
+        <img src="images/motocykl02.jpg" alt="Zdjęcie motocykla" />
+        <p></p>
+        <img src="images/motocykl03.jpg" alt="Zdjęcie motocykla" />
+        <p></p>
+        <img src="images/motocykl04.jpg" alt="Zdjęcie motocykla" />
+        <p></p>
+        <img src="images/honda.jpg" alt="Zdjęcie motocykla" />
+    </div>
+</div>
+
+<div class="slider-section">
+    <h2>Galeria Afryka Twin</h2>
+    <div class="image-slider">
+        <button class="arrow" @onclick="ShowPrevious">&#8592;</button>
+        <img id="sliderImage" src="images/afryka01.jpg" alt="Galeria motocykli" />
+        <button class="arrow" @onclick="ShowNext">&#8594;</button>
+    </div>
+</div>
+
+<div class="footer">Tomasz Zieliński 122921 Łódź 2025</div>
+
+@code {
+    private int currentIndex = 0;
+
+    private string[] images = new[]
+    {
+        "images/afryka01.jpg",
+        "images/afryka02.jpg",
+        "images/afryka03.jpg"
+    };
+
+    private async Task ShowNext()
+    {
+        currentIndex = (currentIndex + 1) % images.Length;
+        await UpdateImage();
+    }
+
+    private async Task ShowPrevious()
+    {
+        currentIndex = (currentIndex - 1 + images.Length) % images.Length;
+        await UpdateImage();
+    }
+
+    private async Task UpdateImage()
+    {
+        await JS.InvokeVoidAsync("updateSliderImage", images[currentIndex]);
+    }
+
+    [Inject] private IJSRuntime JS { get; set; }
+}
