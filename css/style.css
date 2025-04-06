@@ -1,0 +1,113 @@
+/* Ustawienia ogólne */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Czcionka ogólna */
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Nagłówek */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: url('images/motocykl_header.jpg') no-repeat center center;
+    background-size: cover;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    font-size: 36px;
+    font-family: 'Oswald', sans-serif;
+    text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.4);
+    font-weight: bold;
+}
+
+/* Ustawienia dla kontenera (dwie kolumny) */
+.container {
+    display: flex;
+    margin-top: 80px; /* Zwiększenie przestrzeni, aby header się nie nakładał */
+    padding: 20px;
+}
+
+/* Kolumna lewa */
+.column-left {
+    width: 30%; /* Zmieniono szerokość lewa kolumna na 30% */
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+/* Kolumna prawa */
+.column-right {
+    width: 70%; /* Zmieniono szerokość prawa kolumna na 70% */
+    padding: 20px;
+    background-color: #ddd;
+    text-align: center;
+}
+
+.column-right img {
+    max-width: 100%; /* Zapewnia, że zdjęcia będą responsywne */
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* Stopka */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    text-align: right;
+    padding: 10px;
+    font-size: 18px;
+    padding-right: 20px;
+}
+
+/* Galeria dodatkowa (slider) */
+.slider-section {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.slider-section h2 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.image-slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.image-slider img {
+    max-width: 80%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.arrow {
+    font-size: 2rem;
+    padding: 10px 15px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.arrow:hover {
+    background-color: #555;
+}
